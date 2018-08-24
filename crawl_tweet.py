@@ -24,7 +24,8 @@ def process_or_store(tweet):  #the type of crawled data is dict
     a =  json.dumps(tweet) #translate dtic into str
     return json.loads(a) #return str to dict
 
-def home_tweet(user): # tweets showing in homepage of user
+#functions to get twitter information
+def home_tweet(user): # get tweets showing in homepage of user
     tweet_list = []
     for tweet in api.home_timeline(id = user): 
         tweet_list.append(tweet.text)
@@ -62,6 +63,7 @@ def search_tweet(user, query, number): #search tweet replies to user in 7 days t
         tweet_list.append(process_or_store(tweet._json))
     return tweet_list
 
+#write twitter information into excel file
 def write_tweet_to_excel(user, number):
     #create excel file
     file_name = 'twitter-url-'+user+'.xlsx'
@@ -93,7 +95,7 @@ def write_tweet_to_excel(user, number):
     print(file_name, 'has been saved')
 
 query = ' Ha OR haha OR hahaha OR lol'
-user = "texashumor" #user: MensHumor,texashumor,XHNews
-print(search_tweet(user, query, 1))
-write_tweet_to_excel(user, 20)
+user = "texashumor" #if user = '', then it will return your information
+print(search_tweet(user, query, number=1)) #number limits how many tweets will be crawled
+write_tweet_to_excel(user, number=20)
     
