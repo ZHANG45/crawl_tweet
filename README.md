@@ -13,4 +13,9 @@ To use it, first you need to apply for the access for yourself from https://apps
 Then you can try to run it.
 
 ## Functions
-This code contains several functions like search tweets reply to a specific user, or get all tweet published by a specific user.
+This code contains several functions to get information from twitter.
+        home_tweet(user): # get tweets showing in homepage of user
+        get_all_friends(user, number): #get all information of user's friends
+        get_status(user, number): #same as get_all_friends
+        get_tweet(user, number): #get published tweet by user( only published in 7 days)
+        search_tweet(user, query, number): #search tweet replies to user in 7 days that contains words in query 
